@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>ESP8266 LED Control</title>
+  <style>
+    body { text-align: center; }
+    .button { padding: 10px; font-size: 20px; margin: 5px; }
+    .on { background-color: green; color: white; }
+    .off { background-color: red; color: white; }
+  </style>
+</head>
+<body>
+  <h1>ESP8266 LED Control</h1>
+  <button class="button on" onclick="toggleLED()">Toggle LED</button>
+  <script>
+    const esp8266Ip = 'http://192.168.100.144';
+
+    function toggleLED() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", `${esp8266Ip}/toggle`, true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
